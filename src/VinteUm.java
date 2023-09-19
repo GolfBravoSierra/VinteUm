@@ -25,14 +25,14 @@ public class VinteUm
         // imprimindo o nome dos jogadores
         for(int i = 0; i <= numero; i++)
         {
-            System.out.printf("\n nome do jogador %d:", i);
+            System.out.printf("\n nome do jogador %d:", i++);
             System.out.printf(players[i].retornanome());
         }
         // criando o baralho
         DeckOfCards deck = new DeckOfCards();
         deck.shuffle();
         // distribuindo as cartas
-        for(int i = 0; i <= numero; i++)
+        for(int i = 0; i < numero; i++)
         {
             for(int j = 0; j < 2; j++)
             {
@@ -42,14 +42,14 @@ public class VinteUm
             players[i].setmao(mao);
         }
         // imprimindo as cartas dos jogadores
-        for(int i = 0; i <= numero; i++)
+        for(int i = 0; i < numero; i++)
         {
-            System.out.printf("\n nome do jogador %d:", i);
+            System.out.printf("\n nome do jogador %d:", i++);
             System.out.printf(players[i].retornanome());
-            System.out.printf("\n cartas do jogador %d:", i);
+            System.out.printf("\n cartas do jogador %d:", i++);
             for(int j = 0; j < 2; j++)
             {
-                System.out.printf(players[i].retornamao[j]);
+                System.out.printf("\n %s", players[i].retornamao()[j]);
             }
         }
 
