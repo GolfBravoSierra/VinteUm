@@ -19,6 +19,7 @@ public class Player {
     }
     
     public void setmao(Card[] mao){
+        
         this.mao = mao;
     }
 

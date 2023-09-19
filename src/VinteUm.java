@@ -1,19 +1,19 @@
 import java.util.Scanner;
 public class VinteUm
 {
-    public int MAX_PLAYERS;
-    public int Numero_Player = 0;
-    public Player[] players;
-    public Card[] mao;
     public static void main(String[] args)
     {
+         int MAX_PLAYERS;
+         int Numero_Player = 0;
+         Player[] players;
+         Card[] mao = new Card[6];
 
         System.out.printf("entre com o numero de jogadores:");
         Scanner input  = new Scanner(System.in);
         String numero1 = input.nextLine();
         int numero = Integer.parseInt(numero1);
         System.out.println(numero);
-        Player players[] = new Player[numero];
+        players = new Player[numero];
 
         for(int i = 0; i < numero; i++)
         {
@@ -34,11 +34,12 @@ public class VinteUm
         // distribuindo as cartas
         for(int i = 0; i <= numero; i++)
         {
-            for(int j = 0; j < 3; j++)
+            for(int j = 0; j < 2; j++)
             {
-                mao = deck.dealCard();
-                players[i].setmao[j] = mao;
+                mao[j]= deck.dealCard();
+
             }
+            players[i].setmao(mao);
         }
         // imprimindo as cartas dos jogadores
         for(int i = 0; i <= numero; i++)
@@ -46,7 +47,7 @@ public class VinteUm
             System.out.printf("\n nome do jogador %d:", i);
             System.out.printf(players[i].retornanome());
             System.out.printf("\n cartas do jogador %d:", i);
-            for(int j = 0; j < 3; j++)
+            for(int j = 0; j < 2; j++)
             {
                 System.out.printf(players[i].retornamao[j]);
             }
