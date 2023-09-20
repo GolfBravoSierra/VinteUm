@@ -3,10 +3,14 @@ public class VinteUm
 {
     public static void main(String[] args)
     {
-         int MAX_PLAYERS;
-         int Numero_Player = 0;
-         Player[] players;
+         Player[] players = new Player[4];
          Card[] mao = new Card[6];
+         Card[] retorno = new Card[6];
+         Card carta;
+
+         // criando o baralho
+         DeckOfCards deck = new DeckOfCards();
+         deck.shuffle();
 
         System.out.printf("entre com o numero de jogadores:");
         Scanner input  = new Scanner(System.in);
@@ -17,41 +21,42 @@ public class VinteUm
 
         for(int i = 0; i < numero; i++)
         {
-            System.out.printf("\n entre com o nome do jogador %d:", i);
+            System.out.printf("\n entre com o nome do jogador %d:", i + 1);
             String nome ;
             nome = input.nextLine();
-            players[i] = new Player(nome);
-        }
-        // imprimindo o nome dos jogadores
-        for(int i = 0; i <= numero; i++)
-        {
-            System.out.printf("\n nome do jogador %d:", i++);
-            System.out.printf(players[i].retornanome());
-        }
-        // criando o baralho
-        DeckOfCards deck = new DeckOfCards();
-        deck.shuffle();
-        // distribuindo as cartas
-        for(int i = 0; i < numero; i++)
-        {
+            //System.out.println(nome);
+
             for(int j = 0; j < 2; j++)
             {
                 mao[j]= deck.dealCard();
-
+                System.out.printf("\n %s", mao[j].toString());
             }
-            players[i].setmao(mao);
+            players[i] = new Player(nome , mao);
         }
         // imprimindo as cartas dos jogadores
-        for(int i = 0; i < numero; i++)
+       /*  System.out.printf("\n as cartas dos jogadores sao:");
+        for(int i = 1; i <= numero; i++)
         {
             System.out.printf("\n nome do jogador %d:", i++);
-            System.out.printf(players[i].retornanome());
+            System.out.printf(players[1].retornanome());
+
+            retorno[i] = players[i].retornamao();
             System.out.printf("\n cartas do jogador %d:", i++);
-            for(int j = 0; j < 2; j++)
+            for(int j = 0; j < 2; j++)//...............................mão sei porqeu não imprime
             {
-                System.out.printf("\n %s", players[i].retornamao()[j]);
+                System.out.printf(retorno[j].toString());
+            }
+        }*/
+
+        for (int i = 0; i < numero; i++)
+        {
+            System.out.printf("\n player %d deseja mais cartas? (s/n)", i+1);
+            String resposta = input.nextLine();
+            if(resposta == "s")
+            {
+            carta = deck.dealCard();
+            players[i].setmao(carta);
             }
         }
-
     }
 } // end class VinteUm

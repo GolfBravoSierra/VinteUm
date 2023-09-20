@@ -11,9 +11,9 @@ public class DeckOfCards
    // constructor fills deck of Cards
    public DeckOfCards()
    {
-      String[] faces = {"Ace", "Deuce", "Three", "Four", "Five", "Six", 
-         "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
-      String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+      String[] faces = {"Ás", "Dois", "Três", "Quatro", "Cinco", "Seis", 
+         "Sete", "Oito", "Nove", "Dez", "Valete", "Rainha", "Rei"};
+      String[] suits = {"Copas", "Ouro", "Paus", "Espadas"};
 
       deck = new Card[NUMBER_OF_CARDS]; // create array of Card objects
       currentCard = 0; // first Card dealt will be deck[0]
