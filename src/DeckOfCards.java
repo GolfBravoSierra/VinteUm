@@ -11,17 +11,19 @@ public class DeckOfCards
    // constructor fills deck of Cards
    public DeckOfCards()
    {
-      String[] faces = {"Ás", "Dois", "Três", "Quatro", "Cinco", "Seis", 
-         "Sete", "Oito", "Nove", "Dez", "Valete", "Rainha", "Rei"};
+      int[] valor = {11,2,3,4,5,6,7,8,9,10,10,10,10};
+      String[] faces = {"As","Dois","Tres","Quatro","Cinco","Seis","Sete","Oito","Nove","Dez","Valete","Dama","Rei"};
       String[] suits = {"Copas", "Ouro", "Paus", "Espadas"};
 
       deck = new Card[NUMBER_OF_CARDS]; // create array of Card objects
       currentCard = 0; // first Card dealt will be deck[0]
 
       // populate deck with Card objects
-      for (int count = 0; count < deck.length; count++) 
+      for (int count = 0; count < deck.length; count++){ 
          deck[count] = 
-            new Card(faces[count % 13], suits[count / 13]);
+            new Card(faces[count % 13], suits[count / 13], valor[count % 13]);
+      }
+
    } 
 
    // shuffle deck of Cards with one-pass algorithm

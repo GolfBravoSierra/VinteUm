@@ -4,7 +4,7 @@ public class Player {
     private String nome;
     private int pontos;
     private Card retorno;
-    private int i = 2;
+    private int i = 3;
 
     public Player(String nome, Card[] mao){
         this.mao = new Card[6];
@@ -12,7 +12,19 @@ public class Player {
         this.pontos = 0;
         System.out.printf("\n o nome do jogador eh ");
         System.out.printf(this.nome);
+        System.out.printf("\n as cartas do jogador sao: \n");
+        for (int j = 0; j < 2; j++){
+            this.mao[j] = mao[j];
+            System.out.println(this.mao[j].toString());
+            this.pontos = this.pontos + this.mao[j].getvalor();
+        }
+        
     }
+
+    public int getpots(){
+        return this.pontos;
+    }
+
 
     public void getnome(String nome){
         this.nome = nome;
@@ -24,16 +36,12 @@ public class Player {
     
     public void setmao(Card carta){
         
-        this.mao[contaodor()] = carta;
-    }
-
-    public int contaodor(){
-        i = i + 1;
-        return i;
+        this.mao[i] = carta;
+        i ++;
     }
 
     public Card retornamao(){
-        for(int i = 0; i < 2; i++){
+        for(int m = 0; m < 2; m++){
              retorno = this.mao[i];
         }
         return retorno;

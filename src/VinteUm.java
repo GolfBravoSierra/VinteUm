@@ -16,7 +16,7 @@ public class VinteUm
         Scanner input  = new Scanner(System.in);
         String numero1 = input.nextLine();
         int numero = Integer.parseInt(numero1);
-        System.out.println(numero);
+        //System.out.println(numero);
         players = new Player[numero];
 
         for(int i = 0; i < numero; i++)
@@ -29,7 +29,7 @@ public class VinteUm
             for(int j = 0; j < 2; j++)
             {
                 mao[j]= deck.dealCard();
-                System.out.printf("\n %s", mao[j].toString());
+                
             }
             players[i] = new Player(nome , mao);
         }
@@ -51,12 +51,14 @@ public class VinteUm
         for (int i = 0; i < numero; i++)
         {
             System.out.printf("\n player %d deseja mais cartas? (s/n)", i+1);
+            System.out.printf("\n pontos do player %d: %d", i+1, players[i].getpots());
             String resposta = input.nextLine();
             if(resposta == "s")
             {
             carta = deck.dealCard();
             players[i].setmao(carta);
             }
+            System.out.printf("\n %s", players[i].retornamao().toString());
         }
     }
 } // end class VinteUm
