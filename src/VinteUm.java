@@ -7,10 +7,10 @@ public class VinteUm
         Card[] mao = new Card[6];
         Card[] retorno = new Card[6];
         Card carta;
-        String resposta = "s";
+        int count = 0;
          // criando o baralho
-         DeckOfCards deck = new DeckOfCards();
-         deck.shuffle();
+        DeckOfCards deck = new DeckOfCards();
+        deck.shuffle();
 
         System.out.printf("entre com o numero de jogadores:");
         Scanner input  = new Scanner(System.in);
@@ -33,27 +33,34 @@ public class VinteUm
             }
             players[i] = new Player(nome , mao);
         }
+        Contador contagem = new Contador(players , numero); 
+        count = contagem.getcontagem();
 
-        for (int i = 0; i < numero; i++)
-        {
-
-            While (players[i].getpots() < 21 && resposta == "s");
+        while(count != 1){
+            for (int i = 0; i < numero; i++)
             {
-                System.out.printf("\n player %d deseja mais cartas? (s/n)", i+1);
-                System.out.printf("\n pontos do player %d: %d", i+1, players[i].getpots());
-                resposta = input.nextLine();
-                if(resposta == "s")
-                {
-                    carta = deck.dealCard();
-                    System.out.printf("\n a carta eh: %s", carta.toString());
-                    players[i].setmao(carta);
-                }
-                players[i].retornamao();
-
+                    System.out.printf("\n pontos do player %d: %d", i+1, players[i].getpots());
+                    System.out.printf("\n player %d deseja mais cartas? (1 p/ sim e 0 p/ nao):\n", i+1);
+                    Scanner entrada  = new Scanner(System.in);
+                    String resposta = entrada.nextLine();
+                    int resposta1 = Integer.parseInt(resposta);
+                    if(resposta1 == 1)
+                    {
+                        carta = deck.dealCard();
+                        //System.out.printf("\n a carta eh: %s", carta.toString());
+                        players[i].setmao(carta);
+                        players[i].retornamao();
+                    }
+                    else
+                    {
+                        System.out.printf(" o player %d nao quer mais cartas", i+1);
+                    }
+                    //players[i].retornamao();
             }
-        }
-    }
+            contagem = new Contador(players , numero); 
+            count = contagem.getcontagem();
+            System.out.println(count);
 
-    private static void While(boolean b) {
+        }
     }
 } // end class VinteUm

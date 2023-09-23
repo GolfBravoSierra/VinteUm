@@ -4,7 +4,7 @@ public class Player {
     private String nome;
     private int pontos;
     private Card retorno;
-    private int i = 3;
+    private int i = 2;
 
     public Player(String nome, Card[] mao){
         this.mao = new Card[6];
@@ -37,7 +37,7 @@ public class Player {
     public void setmao(Card carta){
         
         this.mao[i] = carta;
-        System.out.println(this.mao[i].toString());
+        //System.out.println(this.mao[i].toString());
         this.pontos = this.pontos + this.mao[i].getvalor();
         i++;
     }
