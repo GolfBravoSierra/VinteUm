@@ -37,14 +37,22 @@ public class Player {
     public void setmao(Card carta){
         
         this.mao[i] = carta;
-        i ++;
+        System.out.println(this.mao[i].toString());
+        this.pontos = this.pontos + this.mao[i].getvalor();
+        i++;
     }
 
-    public Card retornamao(){
-        for(int m = 0; m < 2; m++){
-             retorno = this.mao[i];
+    public void retornamao(){
+        for (int j = 0; j < 6; j++){
+            this.mao[j] = mao[j];
+            if (this.mao[j] != null){
+                System.out.println(this.mao[j].toString());
+                this.pontos = this.pontos + this.mao[j].getvalor();
+            }
+            else{
+                System.out.printf("---------\n");
+            }
         }
-        return retorno;
     }
 
     public void setpontos(int pontos){

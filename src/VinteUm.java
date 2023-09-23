@@ -3,11 +3,11 @@ public class VinteUm
 {
     public static void main(String[] args)
     {
-         Player[] players = new Player[4];
-         Card[] mao = new Card[6];
-         Card[] retorno = new Card[6];
-         Card carta;
-
+        Player[] players = new Player[4];
+        Card[] mao = new Card[6];
+        Card[] retorno = new Card[6];
+        Card carta;
+        String resposta = "s";
          // criando o baralho
          DeckOfCards deck = new DeckOfCards();
          deck.shuffle();
@@ -33,32 +33,27 @@ public class VinteUm
             }
             players[i] = new Player(nome , mao);
         }
-        // imprimindo as cartas dos jogadores
-       /*  System.out.printf("\n as cartas dos jogadores sao:");
-        for(int i = 1; i <= numero; i++)
-        {
-            System.out.printf("\n nome do jogador %d:", i++);
-            System.out.printf(players[1].retornanome());
-
-            retorno[i] = players[i].retornamao();
-            System.out.printf("\n cartas do jogador %d:", i++);
-            for(int j = 0; j < 2; j++)//...............................mão sei porqeu não imprime
-            {
-                System.out.printf(retorno[j].toString());
-            }
-        }*/
 
         for (int i = 0; i < numero; i++)
         {
-            System.out.printf("\n player %d deseja mais cartas? (s/n)", i+1);
-            System.out.printf("\n pontos do player %d: %d", i+1, players[i].getpots());
-            String resposta = input.nextLine();
-            if(resposta == "s")
+
+            While (players[i].getpots() < 21 && resposta == "s");
             {
-            carta = deck.dealCard();
-            players[i].setmao(carta);
+                System.out.printf("\n player %d deseja mais cartas? (s/n)", i+1);
+                System.out.printf("\n pontos do player %d: %d", i+1, players[i].getpots());
+                resposta = input.nextLine();
+                if(resposta == "s")
+                {
+                    carta = deck.dealCard();
+                    System.out.printf("\n a carta eh: %s", carta.toString());
+                    players[i].setmao(carta);
+                }
+                players[i].retornamao();
+
             }
-            System.out.printf("\n %s", players[i].retornamao().toString());
         }
+    }
+
+    private static void While(boolean b) {
     }
 } // end class VinteUm
