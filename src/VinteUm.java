@@ -1,3 +1,7 @@
+
+//Giovani Bellini dos Santos        22007263
+//Victor de Melo Roston             22006737
+//Lucca Vasconcelo Costa Oliveira   22003004
 import java.util.Scanner;
 public class VinteUm
 {
