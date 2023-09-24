@@ -6,6 +6,7 @@ public class Player {
     private Card retorno;
     private int i = 2;
 
+    //contrutor de player, ele recebe o nome do jogador e as duas cartas iniciais e imprime na tela 
     public Player(String nome, Card[] mao){
         this.mao = new Card[6];
         this.nome = nome;
@@ -20,28 +21,30 @@ public class Player {
         }
         
     }
-
+    //retorno de pontos
     public int getpots(){
         return this.pontos;
     }
 
-
+    //seta o nome do jogador 
     public void getnome(String nome){
         this.nome = nome;
     }
 
+    //retorno do nome do jogador
     public String retornanome(){
         return this.nome;
     }
     
+    //seta a mao do jogador
     public void setmao(Card carta){
         
         this.mao[i] = carta;
-        //System.out.println(this.mao[i].toString());
         this.pontos = this.pontos + this.mao[i].getvalor();
         i++;
     }
 
+    //retorna a mao do jogador, ela não retorna para a main ela imprime ele mesma 
     public void retornamao(){
         for (int j = 0; j < 6; j++){
             this.mao[j] = mao[j];
@@ -55,10 +58,12 @@ public class Player {
         }
     }
 
+    //seta os pontos do jogador
     public void setpontos(int pontos){
         this.pontos = pontos;
     }
 
+    //retorna os pontos do jogador
     public int retornapontos(){
         return this.pontos;
     }
