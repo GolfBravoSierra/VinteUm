@@ -8,9 +8,10 @@ public class Contador {
     //contrutor do contador, ele verifica se algum player ja ganhou ou não
     public Contador(Player[] players , int numero){
         while(i < numero){
-            if(players[i].retornapontos() > 21){
+            if(players[i].getpots() > 21){
                 this.contagem = 1;
                 System.out.printf("vrifica 3");
+                System.out.printf("%d",players[i].getpots());
             }
             else{
                 this.contagem = 0;
