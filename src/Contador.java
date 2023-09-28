@@ -10,7 +10,7 @@ public class Contador {
         while(i < numero){
             if(players[i].retornapontos() > 21){
                 this.contagem = 1;
-                
+                System.out.printf("vrifica 3");
             }
             else{
                 this.contagem = 0;

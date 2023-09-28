@@ -41,10 +41,12 @@ public class VinteUm
             }
             //programa chama o construtor de jogador
             players[i] = new Player(nome , mao);
+            System.out.printf("verificando 2");
         }
         // contador é usado para ver se algun jogador ja ganhou ou não ele retorna un caso ja tenha ganhado e zero caso não
         Contador contagem = new Contador(players , numero); 
         count = contagem.getcontagem();
+        System.out.println("verificando 1");
 
         //whwli para compra de cartas do jogo 
         while(count != 1){
@@ -57,15 +59,16 @@ public class VinteUm
                     Scanner entrada  = new Scanner(System.in);
                     String resposta = entrada.nextLine();
                     int resposta1 = Integer.parseInt(resposta);
-                    //if para comprar cartas ou não
+                    //if para ver se o jogador ganhou ou não 
                     if(resposta1 == 1)
                     {
                         carta = deck.dealCard();
-                        //System.out.printf("\n a carta eh: %s", carta.toString());
                         players[i].setmao(carta);
                         players[i].retornamao();
-                        if (players[i].retornapontos() > 21){
-                            System.out.printf("\n -------JOGADOR %d GANHOU", i+1);
+                        if (players[i].retornapontos() <= 21){
+                            System.out.printf("---JOGADOR ");
+                            System.out.printf(players[i].retornanome());
+                            System.out.printf(" GANHOU--- \n com : %d pontos", i+1, players[i].getpots()); 
                         }
                     }
                     else
