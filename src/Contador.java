@@ -7,20 +7,25 @@ public class Contador {
     
     //contrutor do contador, ele verifica se algum player ja ganhou ou não
     public Contador(Player[] players , int numero){
-        while(i < numero){
-            if(players[i].retornapontos() > 21){
+        for(i = 0; i < numero; i++){
+            if(players[i].getpontos() == 21){
                 this.contagem = 1;
-                
             }
-            else{
+            else if (players[i].getpontos() > 21){
+                this.contagem = 2;
+            }
+            else if (players[i].getpontos() < 21){
                 this.contagem = 0;
-                i++;
             }
-        }
+        }    
+        
     }
     //retorna a contagem
     public int getcontagem(){
         return this.contagem;
+    }
+    public int getplayer() {
+        return this.i;
     }
 
 
