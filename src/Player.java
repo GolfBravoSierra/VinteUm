@@ -25,7 +25,8 @@ public class Player {
         
     }
     //retorno de pontos
-    public int getpots(){
+    public int getpontos(){
+       // System.out.printf("\n os pontos do jogador sao: %d \n", this.pontos);
         return this.pontos;
     }
 
@@ -44,6 +45,7 @@ public class Player {
         
         this.mao[i] = carta;
         this.pontos = this.pontos + this.mao[i].getvalor();
+        //System.out.println(this.pontos);
         i++;
     }
 
@@ -53,7 +55,7 @@ public class Player {
             this.mao[j] = mao[j];
             if (this.mao[j] != null){
                 System.out.println(this.mao[j].toString());
-                this.pontos = this.pontos + this.mao[j].getvalor();
+                //this.pontos = this.pontos + this.mao[j].getvalor();
             }
             else{
                 System.out.printf("---------\n");
@@ -66,11 +68,4 @@ public class Player {
         this.pontos = pontos;
     }
 
-    //retorna os pontos do jogador
-    public int retornapontos(){
-        return this.pontos;
-    }
-
-
-    
 }
